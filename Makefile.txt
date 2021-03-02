@@ -1,0 +1,16 @@
+all: base64
+
+projeto2: main.o base64.o
+	gcc -o base64 main.o base64.o
+
+main.o: main.c Codificar.h Decodificar.h
+	gcc -o main.o main.c -c -W -Wall -ansi -pedantic
+
+Codificar.o: Codificar.c Codificar.h
+	gcc -o Codificar.o Codificar.c -c -W -Wall -ansi -pedantic
+
+Decodificar.o: Decodificar.c Decodificar.h
+	gcc -o Decodificar.o Decodificar.c -c -W -Wall -ansi -pedantic
+
+clean: 
+rm -rf *.o *~ base64
